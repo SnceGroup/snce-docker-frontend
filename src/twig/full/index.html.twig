@@ -1,0 +1,12 @@
+{% extends "../pagelayout.html.twig" %}
+
+{% block content %}
+  {% set data = {
+      'logo': '/images/image.png',
+      'title': 'Generic Frontend Repository',
+      'text': 'Generic Frontend Repository Description'
+  } %}
+  <div class="container">
+    {% include '../parts/m-text-module/m-text-module.html.twig' with data %}
+  </div>
+{% endblock %}

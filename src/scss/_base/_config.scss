@@ -1,0 +1,43 @@
+//General config
+$base-font-size: 16;
+$max-width: rem(1440);
+
+// Media query
+$smartphone: 375px; //iphone 6 mq
+$smartphone-portrait: 640px;
+$tablet: 768px;
+$desktop: 1280px;
+
+
+// Basic Font
+$myriadLight: 'myriadLight', Arial;
+$myriadSemibold: 'myriadSemibold', Arial;
+$myriadRegular: 'myriadRegular', Arial;
+$myriadBold: 'myriadBold', Arial;
+$fonts: (
+    's': (
+        'fontFamily': $myriadSemibold, "fontWeight": normal, ), 'l': (
+        'fontFamily': $myriadLight, "fontWeight": normal, ), 'r': (
+        'fontFamily': $myriadRegular, "fontWeight": normal, ), 'b': (
+        'fontFamily': $myriadBold, "fontWeight": normal, )
+);
+
+// Header height
+$header-height: 65px;
+$header-desktop-height: 100px;
+
+// Basic Color
+$light-grey: #f2f2f2;
+$text-black: #505050;
+$text-content-black: #353535;
+$gold: #edb112;
+$border-grey: #c8c8c8;
+$white: #fff;
+$background-grey: #fafafa;
+$black: #000;
+$grey-text: #aeaeae;
+
+// Basic Transition
+$menu-transition-time: 0.7s;
+$button-transition-time: 0.5s;
+$color-transition-time: 0.5s;

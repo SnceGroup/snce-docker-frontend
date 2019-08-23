@@ -1,0 +1,26 @@
+{% macro create(images, options) %}
+
+    {% set enableItemProp = options.enableItemProp is defined and options.enableItemProp %}
+    {% set useLazy = options.disableLazy is not defined ? true : not options.disableLazy %}
+
+    {% if images|length > 0 %}
+        {%- set breakpoints = ['1024px','768px'] -%}
+        <picture>
+            {% if images|length >= 1 %}
+                {% for image in images|slice(1,images|length)|reverse %}
+                    <source class="{{ useLazy ? 'lazyload' : '' }}"
+                    {{ useLazy ? 'data-srcset' : 'srcset' }}="{{image }}"
+                    media="(min-width: {{breakpoints[loop.index0]}})" >
+                {% endfor %}
+                <img
+                {{ useLazy ? 'data-src' : 'src' }}="{{ images[0] }}"
+                class="{{ useLazy ? 'lazyload' : '' }}"
+                alt=""
+                />
+                {% if enableItemProp %}
+                    <meta itemprop="image" content="{{ images[0] }}">
+                {% endif %}
+            {% endif %}
+        </picture>
+    {% endif %}
+{% endmacro %}

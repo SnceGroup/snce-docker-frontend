@@ -1,0 +1,25 @@
+version: '3'
+services:
+
+    webserver:
+        image: nginx:alpine
+        container_name: snce_fe_webserver
+        ports:
+            - "8777:80"
+        volumes:
+            - ./build:/usr/share/nginx/html:cached
+
+    node:
+        build:
+          context: .
+          args:
+            - mail=${MAIL}
+            - name=${NAME}
+        container_name: snce_fe_node
+        working_dir: /var/www
+        ports:
+            - "35730:35729"
+        volumes:
+            - .:/var/www:cached
+            - ~/.ssh:/root/.ssh
+

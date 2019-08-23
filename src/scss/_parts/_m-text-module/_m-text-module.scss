@@ -1,0 +1,43 @@
+.m-text-module {
+  display: flex;
+  background-color: $background-grey;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  text-align: center;
+  padding: rem(50) rem(20);
+
+  @include desktop {
+    padding: rem(100) rem(175);
+  }
+
+  &__logo {
+    width: rem(100);
+    height: rem(100);
+    @include desktop {
+      width: rem(120);
+      height: rem(120);
+    }
+  }
+
+  &__title {
+    color: $text-content-black;
+    margin-top: rem(20);
+    margin-bottom: rem(20);
+    @include font('l', 22, rem(28));
+    @include desktop {
+      margin-top: rem(30);
+      margin-bottom: rem(30);
+      @include font('l', 30, rem(40));
+    }
+  }
+
+  &__text {
+    color: $text-content-black;
+    @include font('l', 16, rem(24));
+    @include desktop {
+      @include font('l', 21, rem(33));
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+
+// Base
+@import '_base/presets.scss',
+        '_base/fonts.scss',
+        '_base/config.scss',
+        '_base/mixins.scss',
+        '_base/generic-settings';
+
+// Vendor
+@import '_vendors/_swiper/swiper';
+
+// Parts
+@import '_parts/_m-text-module/m-text-module.scss';

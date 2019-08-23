@@ -1,0 +1,90 @@
+{
+  "author": "SnceGroup",
+  "description": "Docker npm  frontend repository",
+  "name": "snce-docker-frontend",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SnceGroup/snce-docker-frontend"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "browser-sync": "^2.26.7",
+    "clean-css-cli": "^4.3.0",
+    "concurrently": "^4.1.1",
+    "glob": "^7.1.4",
+    "imagemin-cli": "^5.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "node-sass": "^4.12.0",
+    "onchange": "^6.0.0",
+    "postcss-cli": "^6.1.2",
+    "rimraf": "^2.6.3",
+    "stylefmt": "^6.0.3",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "svg-sprite": "1.3.6",
+    "symlink-or-copy": "^1.2.0",
+    "twig": "^1.13.3",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "ncp": "2.0.0",
+    "swiper": "^4.5.0",
+    "object-fit-images": "^3.0.1",
+    "picturefill": "^3.0.2",
+    "lazysizes": "^3.0.0-rc4",
+    "critical": "^1.3.4",
+    "aws-sdk": "^2.497.0",
+    "recursive-readdir": "^2.2.2",
+    "dotenv": "^8.0.0",
+    "mime-types": "^2.1.24"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/js/*.js"
+    ]
+  },
+  "keywords": [
+    "npm",
+    "build",
+    "static",
+    "website",
+    "sass",
+    "twig"
+  ],
+  "scripts": {
+    "autoprefixer": "node ./script/css/autoprefixer.js",
+    "browser-sync": "node ./script/server/browser-sync.js",
+    "clean-css": "node ./script/css/clean-css.js",
+    "imagemin": "node ./script/images/imagemin.js",
+    "rimraf:dev": "node ./script/clean/rimraf.js",
+    "rimraf:prod": "NODE_ENV=prod node ./script/clean/rimraf.js",
+    "scss": "node ./script/css/scss.js",
+    "svg-sprite": "node ./script/images/svg-sprite.js",
+    "stylelint": "node ./script/css/stylelint.js",
+    "twig": "node ./script/html/twig.js",
+    "build:css:dev": "node ./script/css/build.js",
+    "build:css:prod": "NODE_ENV=prod node ./script/css/build.js",
+    "build:html:dev": "node ./script/html/build.js",
+    "build:html:prod": "NODE_ENV=prod node ./script/html/build.js",
+    "build:images:dev": "node ./script/images/build.js",
+    "build:images:prod": "NODE_ENV=prod node ./script/images/build.js",
+    "build:js:dev": "webpack --mode development",
+    "build:js:prod": "NODE_ENV=prod webpack --mode production",
+    "build:fonts:dev": "node ./script/font/font.js",
+    "build:fonts:prod": "NODE_ENV=prod node ./script/font/font.js",
+    "build:dev": "npm run rimraf:dev && npm run build:images:dev && npm run build:css:dev && npm run build:js:dev && npm run build:html:dev && npm run build:fonts:dev",
+    "build:prod": "npm run rimraf:prod && npm run build:images:prod && npm run build:css:prod && npm run build:js:prod && npm run build:html:prod && npm run build:fonts:prod",
+    "watch:css": "onchange -p 100 './src/scss/**/*.scss' -- npm run build:css:dev",
+    "watch:html": "onchange -p 100 './src/twig/**/**/*.html.twig' -- npm run build:html:dev",
+    "watch:js": "NODE_ENV=dev webpack --watch --mode development",
+    "watch:svg": "onchange -p 100 './src/sprite/svg/**/*.svg' -- npm run svg-sprite",
+    "watch": "concurrently 'npm run watch:css' 'npm run watch:html' 'npm run watch:js' 'npm run watch:svg'",
+    "build:critical": "NODE_ENV=prod node ./script/critical/critical.js",
+    "release": "NODE_ENV=prod node ./script/release/release.js",
+    "s3:upload": "NODE_ENV=prod node script/aws/sw3-upload.js"
+  },
+  "version": "1.0.1"
+}

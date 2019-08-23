@@ -1,0 +1,8 @@
+node_modules
+build-dev
+build
+/.idea
+.idea/*
+.DS_Store
+.env
+env

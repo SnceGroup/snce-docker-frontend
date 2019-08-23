@@ -1,0 +1,30 @@
+html {
+  min-width: rem(320);
+}
+
+body {
+  @include desktop {
+    overflow-x: auto;
+  }
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  height: auto;
+  overflow: auto;
+  line-height: 1.42857;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.loaded {
+    opacity: 1;
+    height: auto;
+    overflow: auto;
+  }
+}
+
+.m-container {
+  padding-top: $header-height;
+  @include desktop {
+    padding-top: $header-desktop-height;
+  }
+}
