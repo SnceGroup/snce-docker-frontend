@@ -15,7 +15,7 @@
     "glob": "^7.1.4",
     "imagemin-cli": "^5.0.0",
     "imagemin-pngquant": "^8.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "onchange": "^6.0.0",
     "postcss-cli": "^6.1.2",
     "rimraf": "^2.6.3",
